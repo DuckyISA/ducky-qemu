@@ -7,6 +7,7 @@ enum {
     QEMU_ARCH_ALPHA = (1 << 0),
     QEMU_ARCH_ARM = (1 << 1),
     QEMU_ARCH_CRIS = (1 << 2),
+    QEMU_ARCH_DUCKY = (1 << 18),
     QEMU_ARCH_I386 = (1 << 3),
     QEMU_ARCH_M68K = (1 << 4),
     QEMU_ARCH_LM32 = (1 << 5),

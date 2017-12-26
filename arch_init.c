@@ -55,6 +55,10 @@ int graphic_depth = 32;
 #define QEMU_ARCH QEMU_ARCH_ARM
 #elif defined(TARGET_CRIS)
 #define QEMU_ARCH QEMU_ARCH_CRIS
+#elif defined(TARGET_DUCKY)
+#define QEMU_ARCH QEMU_ARCH_DUCKY
+#elif defined(TARGET_I386)
+#define QEMU_ARCH QEMU_ARCH_I386
 #elif defined(TARGET_HPPA)
 #define QEMU_ARCH QEMU_ARCH_HPPA
 #elif defined(TARGET_I386)

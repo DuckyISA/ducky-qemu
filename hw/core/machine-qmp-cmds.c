@@ -50,6 +50,9 @@ CpuInfoList *qmp_query_cpus(Error **errp)
 #elif defined(TARGET_S390X)
         S390CPU *s390_cpu = S390_CPU(cpu);
         CPUS390XState *env = &s390_cpu->env;
+#elif defined(TARGET_DUCKY)
+        DuckyCPU *ducky_cpu = DUCKY_CPU(cpu);
+        CPUDuckyState *env = &ducky_cpu->env;
 #endif
 
         cpu_synchronize_state(cpu);
@@ -83,6 +86,9 @@ CpuInfoList *qmp_query_cpus(Error **errp)
 #elif defined(TARGET_RISCV)
         info->value->arch = CPU_INFO_ARCH_RISCV;
         info->value->u.riscv.pc = env->pc;
+#elif defined(TARGET_DUCKY)
+        info->value->arch = CPU_INFO_ARCH_DUCKY;
+        info->value->u.ducky.pc = env->pc;
 #else
         info->value->arch = CPU_INFO_ARCH_OTHER;
 #endif
@@ -140,6 +146,9 @@ static CpuInfoArch sysemu_target_to_cpuinfo_arch(SysEmuTarget target)
     case SYS_EMU_TARGET_RISCV32:
     case SYS_EMU_TARGET_RISCV64:
         return CPU_INFO_ARCH_RISCV;
+
+    case SYS_EMU_TARGET_DUCKY:
+        return CPU_INFO_ARCH_DUCKY;
 
     default:
         return CPU_INFO_ARCH_OTHER;
